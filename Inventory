@@ -3,11 +3,19 @@ public class Inventory {
         
         private ArrayList<Item> itemInventory;
         
+        /*
+        * Construct an inventory for the users
+        */
         public Inventory()
         {
             itemInventory = new ArrayList<Item>();
         }
         
+        /*
+        * Add in item into the inventory
+        * @param character - to determine the maximum capacity later at the code
+        * @param item - the intended item to be added into the inventory
+        */
         public void addItem(ItemPicker character, Item item)
         {
             if (itemInventory.size() < character.getMaximumCapacity())
@@ -26,11 +34,20 @@ public class Inventory {
             }
         }
         
+        /*
+        * Return the inventory for the users
+        * @return getInventory - the inventory
+        */
         public ArrayList<Item> getInventory()
         {
             return itemInventory;
         }
         
+        /*
+        * Return the sum of items in the inventory which would later be used to detemrmine the users win or not
+        * @param itemKeeper - the ArrayList to check
+        * @return count - the sum of items in the inventory
+        */
         public int checkRarity(ArrayList<Item> itemKeeper)
         {
             int count = 0;
@@ -52,6 +69,11 @@ public class Inventory {
             return count;
         }
         
+        /*
+        * Return the string stating the number of special, rare, and common items in the inventory
+        * @param itemKeeper - the ArrayList to check
+        * @return a string consisting the number of special, rare, and common items
+        */
         public String checkNumber(ArrayList<Item> itemKeeper)
         {
             int special = 0;
