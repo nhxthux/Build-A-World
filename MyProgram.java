@@ -1,3 +1,7 @@
+/*
+* @author - Huy Nguyen
+* A virtual gacha system that generated based on randomness
+*/
 import java.util.Scanner;
 import java.util.ArrayList;
 public class MyProgram
