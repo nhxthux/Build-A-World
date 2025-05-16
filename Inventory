@@ -1,0 +1,77 @@
+import java.util.ArrayList;
+public class Inventory {
+        
+        private ArrayList<Item> itemInventory;
+        
+        public Inventory()
+        {
+            itemInventory = new ArrayList<Item>();
+        }
+        
+        public void addItem(ItemPicker character, Item item)
+        {
+            if (itemInventory.size() < character.getMaximumCapacity())
+            {
+                System.out.println("You still have " + itemInventory.size() + " items in your inventory!");
+                itemInventory.add(item);
+                System.out.println("You now have " + itemInventory.size() + " items in your inventory!");
+                System.out.println("");
+            }
+            else
+            {
+                System.out.println("You do not have enough slots available!");
+                //itemInventory.add(item);
+                //itemInventory.remove(0);
+                System.out.println("");
+            }
+        }
+        
+        public ArrayList<Item> getInventory()
+        {
+            return itemInventory;
+        }
+        
+        public int checkRarity(ArrayList<Item> itemKeeper)
+        {
+            int count = 0;
+            for(Item i:itemKeeper)
+            {
+                if (i.returnRarity().equals("special"))
+                {
+                    count += 2;
+                }
+                else if(i.returnRarity().equals("rare"))
+                {
+                    count += 1;
+                }
+                else
+                {
+                    count += 0;
+                }
+            }
+            return count;
+        }
+        
+        public String checkNumber(ArrayList<Item> itemKeeper)
+        {
+            int special = 0;
+            int rare = 0;
+            int common = 0;
+            for(Item i:itemKeeper)
+            {
+                if (i.returnRarity().equals("special"))
+                {
+                    special += 1;
+                }
+                else if(i.returnRarity().equals("rare"))
+                {
+                    rare += 1;
+                }
+                else
+                {
+                    common += 1;
+                }
+            }
+            return "Special: " + special + "\n" + "Rare: " + rare + "\n" + "Common: " + common;
+        }
+}
